@@ -17,7 +17,6 @@ public class amozanGiftCardTest extends baseTest {
                 .verify_the_selected_country("Spain")
                 .step_to_search_content("e gift card Amazon")
                 .step_select_e_gift_card();
-
 //                .step_select_a_new_image()
 //                .step_preview_and_verify_selected_image()
 //                .step_change_the_card_value()

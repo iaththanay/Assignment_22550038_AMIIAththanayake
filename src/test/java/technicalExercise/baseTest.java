@@ -3,6 +3,7 @@ package technicalExercise;
 import Utils.TakeErrorScreenShots;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import com.aventstack.extentreports.ExtentReports;
@@ -24,13 +25,32 @@ public class baseTest {
         extent = new ExtentReports(); // Initialize ExtentReports (basic setup)
     }
 
-    @BeforeClass
+    /*@BeforeClass
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.google.com/");
     }
+    */
+
+    @BeforeClass
+    public void setUp() {
+        // Create ChromeOptions to set headless mode and other arguments
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless"); // Enable headless mode
+        options.addArguments("--disable-gpu"); // Disable GPU (recommended for headless)
+        options.addArguments("--window-size=1920,1080"); // Set window size
+        options.addArguments("--no-sandbox"); // Recommended for some CI environments
+        options.addArguments("--disable-dev-shm-usage"); // Optimize for low-resource environments
+        // Initialize ChromeDriver with ChromeOptions
+        driver = new ChromeDriver(options);
+        // Set implicit waits
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        // Navigate to the target URL
+        driver.get("https://www.google.com/");
+    }
+
 
     @BeforeMethod
     public void startTestFromDescription(ITestResult result) {

@@ -40,6 +40,20 @@ public class amazonHomePage extends BasePage{
     WebElement txtValuePreviewCard;
     @FindBy (xpath = "//div[@class='a-popover-wrapper']//header//button[@class=' a-button-close a-declarative']")
     WebElement btnClose;
+    @FindBy (xpath = "//input[@id='add-to-cart-button']")
+    WebElement btnAddToCart;
+    @FindBy (xpath = "//div[@id='nav-cart-text-container']")
+    WebElement btnCart;
+    @FindBy (xpath = "(//span[contains(text(),'Galaxy Tab')])[1]")
+    WebElement txtProductDescription;
+    @FindBy (xpath = "//span[text()=\"Roll over image to zoom in\"]")
+    WebElement txtZoomin;
+    @FindBy (xpath = "//h1[@class='a-size-medium-plus a-color-base sw-atc-text a-text-bold']")
+    WebElement txtProductTitle;
+    @FindBy (xpath = "//input[@name='proceedToRetailCheckout']")
+    WebElement btnProceedCheckout;
+    @FindBy (xpath = "//h1[@class='a-spacing-small']")
+    WebElement txtSigninForm;
 
     public amazonHomePage(WebDriver driver) {
         super(driver);
@@ -116,6 +130,31 @@ public class amazonHomePage extends BasePage{
         waitUntilClickable(btnClose);
         btnClose.click();
     }
+    private void click_on_add_to_cart_button(){
+        btnAddToCart.click();
+    }
+
+    private void click_on_cart_button(){
+        btnCart.click();
+    }
+    private void click_to_view_selected_product(){
+        txtProductDescription.click();
+    }
+    private void selected_product_is_display(){
+        softAssert.assertEquals(txtZoomin.getText(),"Roll over image to zoom in");
+    }
+    private void check_procusct_is_successfully_added(){
+        softAssert.assertTrue(txtProductTitle.isDisplayed(), "The product title is not displayed on the page.");
+
+    }
+    private void click_proceed_checkout(){
+        btnProceedCheckout.click();
+
+    }
+    private void check_signin_form_title(){
+        softAssert.assertTrue(txtSigninForm.isDisplayed(), "The product title is not displayed on the page.");
+
+    }
 
     //steps
     public amazonHomePage step_click_to_change_the_country(String countryName){
@@ -161,6 +200,35 @@ public class amazonHomePage extends BasePage{
         step_preview_selected_image();
         verify_the_card_value1();
         close_preview_window();
+        return this;
+    }
+    public amazonHomePage step_click_add_to_cart_button(){
+        click_on_add_to_cart_button();
+        return this;
+    }
+    public amazonHomePage verify_product_successfull_add_to_cart(){
+        check_procusct_is_successfully_added();
+        return this;
+    }
+
+    public amazonHomePage step_to_click_cart(){
+        click_on_cart_button();
+        return this;
+    }
+    public amazonHomePage step_view_selected_product(){
+        click_to_view_selected_product();
+        return this;
+    }
+    public amazonHomePage verify_selected_product(){
+        selected_product_is_display();
+        return this;
+    }
+    public amazonHomePage step_proceed_checkout(){
+        click_proceed_checkout();
+        return this;
+    }
+    public amazonHomePage verify_step_proceed_checkout(){
+        check_signin_form_title();
         return this;
     }
 

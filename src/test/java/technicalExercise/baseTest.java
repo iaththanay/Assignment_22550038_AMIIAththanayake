@@ -27,19 +27,19 @@ public class baseTest {
 
     @BeforeClass
     public void setUp() {
-//        driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        driver.get("https://www.google.com/");
-
-        // Set ChromeOptions for headless mode
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");   // Enable headless mode
-
-        // Initialize the WebDriver with ChromeOptions
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.google.com/");
+
+        // Set ChromeOptions for headless mode
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--headless");   // Enable headless mode
+//
+//        // Initialize the WebDriver with ChromeOptions
+//        driver = new ChromeDriver(options);
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver.get("https://www.google.com/");
     }
 
 

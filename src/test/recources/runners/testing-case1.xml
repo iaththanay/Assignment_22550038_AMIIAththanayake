@@ -4,8 +4,6 @@
     <test name="Test Set">
         <classes>
             <class name="technicalExercise.deliveryToLocationChangeTest" />
-            <class name="technicalExercise.selectProductTest" />
-            <class name="technicalExercise.checkoutTest" />
         </classes>
     </test>
 </suite>

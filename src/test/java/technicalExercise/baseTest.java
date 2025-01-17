@@ -3,7 +3,6 @@ package technicalExercise;
 import Utils.TakeErrorScreenShots;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import com.aventstack.extentreports.ExtentReports;
@@ -32,14 +31,6 @@ public class baseTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get("https://www.google.com/");
 
-        // Set ChromeOptions for headless mode
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");   // Enable headless mode
-//
-//        // Initialize the WebDriver with ChromeOptions
-//        driver = new ChromeDriver(options);
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//        driver.get("https://www.google.com/");
     }
 
 

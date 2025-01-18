@@ -33,8 +33,6 @@ public class baseTest {
 
     }
 
-
-
     @BeforeMethod
     public void startTestFromDescription(ITestResult result) {
         // Fetch test description or use method name
